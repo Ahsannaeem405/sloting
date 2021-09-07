@@ -28,6 +28,9 @@ Route::get('/cache', function() {
         Session::flush();
         return 'FINISHED';  
     });
+Route::get('/migrate', function() {
+         Artisan::call('migrate');
+        });
 // Route::get('/', function () {
 //     return view('welcome');
 // });
