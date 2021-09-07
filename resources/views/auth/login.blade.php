@@ -85,11 +85,11 @@
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
-                        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
+                                @if (session('status'))
+                    <div class="mb-4 font-medium text-sm text-green-600">
+                        {{ session('status') }}
+                    </div>
+                      @endif
 
                        
                             <form class="md-float-material form-material" method="POST" action="{{ route('login') }}">
