@@ -14,18 +14,18 @@
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <div class="page-header-title">
-                                <h5 class="m-b-10">Basic Form Inputs</h5>
-                                <p class="m-b-0">Lorem Ipsum is simply dummy text of the printing</p>
+                                <h5 class="m-b-10">View Asset</h5>
+                             
                             </div>
                         </div>
                         <div class="col-md-4">
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                    <a href="/admin"> <i class="fa fa-home"></i> </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Form Components</a>
+                                <li class="breadcrumb-item"><a href="#!">View</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Basic Form Inputs</a>
+                                <li class="breadcrumb-item"><a href="#!">Asset</a>
                                 </li>
                             </ul>
                         </div>
