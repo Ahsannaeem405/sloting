@@ -20,6 +20,12 @@ use App\Http\Controllers\AdminController;
 Route::get('/reset', function() {
     session()->forget('PLAY_ID');
 });
+Route::get('/seed', function() {
+    Artisan::call('db:seed');
+});
+Route::get('/migrate', function() {
+   Artisan::call('migrate');
+});
 Route::get('/cache', function() {
         $run = Artisan::call('config:clear');
         $run = Artisan::call('cache:clear');

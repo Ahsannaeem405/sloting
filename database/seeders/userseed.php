@@ -3,24 +3,21 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
-class DatabaseSeeder extends Seeder
+class userseed extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-       DB::table('users')->insert([
+         DB::table('users')->insert([
            'name' =>'admin',
             'email' =>'admin@gmail.com',
             'password' => Hash::make('12345678'),
         ]);
-
-        // \App\Models\User::factory(10)->create();
+        
     }
 }
