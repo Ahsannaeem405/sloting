@@ -14,18 +14,18 @@
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <div class="page-header-title">
-                                <h5 class="m-b-10">Basic Form Inputs</h5>
-                                <p class="m-b-0">Lorem Ipsum is simply dummy text of the printing</p>
+                                <h5 class="m-b-10">View Links</h5>
+                            
                             </div>
                         </div>
                         <div class="col-md-4">
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                    <a href="/admin"> <i class="fa fa-home"></i> </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Form Components</a>
+                                <li class="breadcrumb-item"><a href="#!">View</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#!">Basic Form Inputs</a>
+                                <li class="breadcrumb-item"><a href="#!">Links</a>
                                 </li>
                             </ul>
                         </div>
@@ -43,7 +43,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                  
+                                    
                                 </div>
                                 @if(session()->has('message'))
                                 <div class="alert alert-success col-md-4 offset-md-3 mt-3" role="alert">
@@ -56,8 +56,8 @@
                                             <thead>
                                                 <tr>
                                                     <th width="10">#</th>
-                                                    <th width="50">Title</th>
-                                                    <th width="40">Image</th>
+                                                    <th width="50">Name</th>
+                                                    <th width="40">Url</th>
                                                     <th width="10">Action</th>
                                                 </tr>
                                             </thead>
@@ -78,7 +78,7 @@
 
                                       <!-- Modal Header -->
                                       <div class="modal-header">
-                                        <h4 class="modal-title">Add Assets</h4>
+                                        <h4 class="modal-title">Add Links</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
 
