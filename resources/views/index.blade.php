@@ -158,7 +158,7 @@ h3.blinkings{
 					<div  style="text-align: center;">
 						<div id="getData"  class="btn btn-primary "><i class="fa fa-facebook"></i> Sign in with Facebook</div>
 					</div>
-					    <div class="flex items-center justify-end mt-4" style="display: none;">
+					    <div class="flex items-center justify-end mt-4" style="display: ;">
                 <a  class="btn btn-primary " id="fblogin" href="{{ url('auth/facebook') }}" style="margin-top: 0px !important;background: blue;color: #ffffff;padding: 5px;border-radius:7px;" id="btn-fblogin">
                     <i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook
                 </a>
