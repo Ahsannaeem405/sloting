@@ -27,6 +27,13 @@ h3.blinkings{
     height: 200px;
     border-top: 7px solid red;
 }
+#win1{
+	display: none;
+
+	 position: absolute;
+     top: 11%;
+    right: -5%;
+}
 </style>
 
 	<h3 class="blinkings">Play and Win</h3>
@@ -57,14 +64,14 @@ h3.blinkings{
 
        @if(session()->has('PLAY_ID')==1)
       <div id="buttons">
-      	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default Spin1" >Spin</div>
+      	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default Spin1" >Spin Again</div>
   		</div>
   		  <input type="hidden" id="s_id"  value="{{session()->get('PLAY_ID')}}" name="">
 
       @else
        <div id="buttons">
 	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default" data-toggle="modal" data-target="#myModal" >Spin The Wheel</div>
-	  		  <input type="hidden" id="s_id"  value="1" name="">
+	  		  <input type="hidden" id="s_id"  value="0" name="">
 
       </div>
 
@@ -72,7 +79,7 @@ h3.blinkings{
           @endif
              @if(session()->get('PLAY_ID')==2)
       <div id="buttons">
-      	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default Spin4" >Spin</div>
+      	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default Spin4" >Spin Again</div>
   			      </div>
   			      <input type="hidden" id="s_id"  value="{{session()->get('PLAY_ID')}}" name="">
   			       @endif
@@ -90,7 +97,9 @@ h3.blinkings{
 "></div>
    <div id="line" style="display: none;">
       </div>
-
+<div id="win1">
+	<img src="{{asset('admin_asset/images/Gg_Jackpot.png')}}" width="360" height="360">
+</div>
    <script type="text/javascript">
    	$('document').ready(function(){
    		$('#fb_share').click(function(){
@@ -158,7 +167,7 @@ h3.blinkings{
 					<div  style="text-align: center;">
 						<div id="getData"  class="btn btn-primary "><i class="fa fa-facebook"></i> Sign in with Facebook</div>
 					</div>
-					    <div class="flex items-center justify-end mt-4" style="display: ;">
+					    <div class="flex items-center justify-end mt-4" style="display:none ;">
                 <a  class="btn btn-primary " id="fblogin" href="{{ url('auth/facebook') }}" style="margin-top: 0px !important;background: blue;color: #ffffff;padding: 5px;border-radius:7px;" id="btn-fblogin">
                     <i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook
                 </a>

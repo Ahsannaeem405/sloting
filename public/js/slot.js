@@ -158,11 +158,17 @@ for(i=0;i<count;i++)
     data:$('#frmgetData').serialize(),
     type:'post',
     success:function(result){
-         $('#url').html('<a href="'+result.link+'">Click here</a><div>');
+         $('#url').html('<a target="_blank" href="'+result.link+'"  id="btn">Click here to get reward</a><div>');
          $('.close').click();
+         $('#btn').click(function(){
+         	setTimeout(
+  function() 
+  {
+         	 window.location.href="/";
+  }, 2000);
+         });
          //$('#fblogin').click();
 
-         //window.location.href="/";
 
           }
   	});
@@ -176,28 +182,27 @@ for(i=0;i<count;i++)
     $('.Spin1').click(function(e) {
    
 	$('h1').text('Rolling!');
-		$('#url').html('<a href="/url_link">Click here</a>');
-
+		$('#url').html('<a id="btn" href="/url_link" target="_blank">Click here to get reward</a>');
+		    $('#btn').click(function(){
+         	setTimeout(
+  function() 
+  {
+         	 window.location.href="/";
+  }, 2000);
+         });
 	game.restart();
     });
 
-
- //    $('.Spin2').click(function(e) {
-	// $('h1').text('Rolling!');
-	// $('#url').html('<a href="/url_link2">Click here</a>');
-
-	// game.restart();
- //    });
- //     $('.Spin3').click(function(e) {
-	// $('h1').text('Rolling!');
-	// $('#url').html('<a href="/url_link4">Click here</a>');
-
-	// game.restart();
- //    });
       $('.Spin4').click(function(e) {
 	$('h1').text('Rolling!');
-	$('#url').html('<a href="/fb_link" id="forget"> share FB </a>');
-	
+	$('#url').html('<a id="btn" href="/fb_link" id="forget" target="_blank"> share FB </a>');
+	    $('#btn').click(function(){
+         	setTimeout(
+  function() 
+  {
+         	 window.location.href="/";
+  }, 2000);
+         });
 	game.restart();
 
     });
@@ -297,7 +302,15 @@ for(i=0;i<count;i++)
 	items2.push(data);
 }
 var s_id=$('#s_id').val();
-if(s_id ==1)
+var s_id=parseInt(s_id);
+if(s_id ==0)
+{
+		this.result1 = _find( this.items1, items2[5].id );
+          this.result2 = _find( this.items2, items2[5].id );
+          this.result3 = _find( this.items3, items2[5].id );
+}
+ 
+else if(s_id ==1)
 {
 			this.result1 = _find( this.items1, items2[3].id );
           this.result2 = _find( this.items2, items2[3].id );
@@ -441,10 +454,33 @@ Game.prototype.update = function() {
 	$(".Spin3").css("display", "none");
 	$(".Spin4").css("display", "none");
 	$(".freeSpin").css("display", "none");
+
 	// $(".freeSpain").css("display", "block");
+	var s_id=$('#s_id').val();
+if(s_id ==0)
+{
+			$("#win1").css("display", "block");
+
+	setTimeout(
+  function() 
+  {
+	$("#win1").css("display", "none");
+  }, 5000);
 
 
+}
+if(s_id ==1)
+{
+	$("#win1").css("display", "block");
 
+	setTimeout(
+  function() 
+  {
+	$("#win1").css("display", "none");
+  }, 5000);
+
+
+}
 	this.state = 7;
 	break;
     case 7: // game ends

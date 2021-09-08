@@ -63,12 +63,24 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+
                                 @foreach($asset as $list)
                                 <tr>
                                     <th scope="row">{{$list->id}}</th>
                                     <td>{{$list->title}}</td>
-                                    <td><img src="{{asset('admin_asset/images/asset')}}/{{$list->image}}" width="60" height="60"></td>
+                                    <td><img src="{{asset('admin_asset/images/asset')}}/{{$list->image}}" width="60" height="60">
+                                         @if($list->id==9)
+
+                                    <b  class="btn btn-primary btn-sm">Second Spain Winner</b>
+                                        @endif
+                                         @if($list->id==11)
+
+                                    <b  class="btn btn-primary btn-sm"> First Spain Winner</b>
+                                        @endif
+                                    </td>
+
                                     <td>
+
                                         <a data-toggle="modal" data-target="#updateModal{{$list->id}}" href="{{url('assetEdit')}}/{{$list->id}}" class="btn btn-primary btn-sm">Edit</a>
                                         <a href="{{url('assetDelete')}}/{{$list->id}}" class="btn btn-danger btn-sm">delete</a>
                                     </td>
