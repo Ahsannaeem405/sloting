@@ -43,8 +43,8 @@ Route::get('/migrate', function() {
 // Route::get('/', function () {
 //     return view('index');
 // });
- // Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
- // Route::get('auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
+ Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
+ Route::get('auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
  Route::get('/',[UserController::class,'index']);
  Route::post('/getData',[UserController::class,'getData']);
  Route::get('/url_link',[UserController::class,'url_link']);
