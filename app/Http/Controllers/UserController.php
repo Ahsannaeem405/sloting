@@ -14,7 +14,13 @@ use Exception;
 use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
-    //
+       public function index()
+    {
+        $getasset['real']=Asset::get();
+             $getasset['real2']=Asset::count();
+   
+        return view('index',$getasset);
+    }
      public function redirectToFacebook()
     {
          dd('dd');
@@ -51,13 +57,7 @@ class UserController extends Controller
             dd($e->getMessage());
         }
     }
-    public function index(Request $request)
-    {
-        $getasset['real']=Asset::get();
-             $getasset['real2']=Asset::count();
-   
-        return view('index',$getasset);
-    }
+ 
     public function getData(Request $request)
     {
          // $validatedData = $request->validate([

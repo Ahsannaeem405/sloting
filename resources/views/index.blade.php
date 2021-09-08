@@ -4,7 +4,6 @@
   <div id="viewport">
     <div id="container">
       <div id="header">
-	<h1>Slots Machine</h1>
 	<h3>Play and Win</h3>
       </div>
       @php $i=0; @endphp
@@ -36,7 +35,7 @@
 
       @else
        <div id="buttons">
-	<div id="play" class="button button-default" data-toggle="modal" data-target="#myModal" >Play</div>
+	<div id="play" class="button button-default" data-toggle="modal" data-target="#myModal" >Spin The Wheel</div>
       </div>
 
 

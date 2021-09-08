@@ -85,18 +85,19 @@
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
-                                @if (session('status'))
-                    <div class="mb-4 font-medium text-sm text-green-600">
-                        {{ session('status') }}
-                    </div>
-                      @endif
+                       
 
                        
                             <form class="md-float-material form-material" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="text-center">
-            <img src="{{asset('img/logo.png')}}" width="250" height="250">
+                             <img src="{{asset('img/logo.png')}}" width="auto" height="250">
                             </div>
+                                     @if (session('status'))
+                    <div class="mb-4 font-medium text-sm text-green-600">
+                        {{ session('status') }}
+                    </div>
+                      @endif
                             <div class="auth-box card">
                                 <div class="card-block">
                                     <div class="row m-b-20">
@@ -105,12 +106,17 @@
                                         </div>
                                     </div>
                                     <div class="form-group form-primary">
-                                        <input  class="form-control" id="email"  type="email" name="email" :value="old('email')" required autofocus >
+                                        <input  class="form-control  @error('email') is-invalid @enderror" id="email"  type="email" name="email" :value="old('email')" required autofocus >
+                                         @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                         <span class="form-bar"></span>
                                         <label class="float-label">Your Email Address</label>
                                     </div>
                                     <div class="form-group form-primary">
-                                        <input type="password" name="password" class="form-control" id="password"  type="password" name="password" required autocomplete="current-password">
+                                        <input type="password" name="password" class="form-control " id="password"  type="password" name="password" required autocomplete="current-password">
                                         <span class="form-bar"></span>
                                         <label class="float-label">Password</label>
                                     </div>

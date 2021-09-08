@@ -1,5 +1,5 @@
 
-var IMAGE_HEIGHT = 64;
+var IMAGE_HEIGHT = 88;
 var IMAGE_TOP_MARGIN = 5;
 var IMAGE_BOTTOM_MARGIN = 5;
 var SLOT_SEPARATOR_HEIGHT = 2
@@ -32,7 +32,7 @@ function preloadImages( images, callback ) {
 
     function _preload( asset ) {
 	asset.img = new Image();
-	asset.img.src = 'admin_asset/images/asset/' + asset.id+'.png';
+	asset.img.src = 'admin_asset/images/asset/' + asset.id+'.jpg';
 
 	asset.img.addEventListener("load", function() {
 	    _check();
@@ -386,13 +386,13 @@ Game.prototype.update = function() {
 	var ec = 0;
 
 	$('#results').show();
-	if (that.items1[that.result1].id == 'gold-64') {
+	if (that.items1[that.result1].id == 'freegift-64') {
 	    ec++;
 	}
-	if (that.items2[that.result2].id == 'gold-64') {
+	if (that.items2[that.result2].id == 'freegift-64') {
 	    ec++;
 	}
-	if (that.items3[that.result3].id == 'gold-64') {
+	if (that.items3[that.result3].id == 'freegift-64') {
 	    ec++;
 	}
 	$('#multiplier').text(ec);

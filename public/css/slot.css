@@ -74,7 +74,7 @@ html , body
 {
     font-family: 'Slackey'; 
     position:absolute;
-    bottom:10px;
+    bottom:-56px;
     left:30px;
     right:30px;
     text-align: center;
@@ -89,7 +89,7 @@ html , body
 {
     display:block;
     position:relative;
-    height: 180px;
+    height: 290px;
     overflow: hidden;
     text-align: center;
     background:#000;
@@ -100,7 +100,7 @@ html , body
 }
 #container #reels canvas
 {
-    width: 87px;
+    width: 97px;
     height: 300px;
     position: relative;
     background: white;
