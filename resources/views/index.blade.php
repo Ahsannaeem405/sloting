@@ -1,18 +1,45 @@
 @extends('layout')
 @section('content')
-
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div id="viewport">
     <div id="container">
       <div id="header">
-	<h3>Play and Win</h3>
+      	<style type="text/css">
+	
+h3.blinkings{
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #fff;    }
+    49%{    color: red; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: green;    }
+}
+#line{
+    position: absolute;
+    top: 71%;
+    width: 323px;
+    height: 200px;
+    border-top: 7px solid red;
+}
+</style>
+
+	<h3 class="blinkings">Play and Win</h3>
       </div>
+      
       @php $i=0; @endphp
       @foreach($real as $list)
          <input type="hidden" id="imgid_{{$i++}}" value="{{substr($list->image,0,strpos($list->image, '.'))}}" name="">
       @endforeach
          <input type="hidden" id="count_lenght" name="" value="{{$real2}}">
 
-      <div id="reels">
+      <div id="reels" style="    padding-top: 102px;
+">
 	<canvas id="canvas1" width="70" height="300"></canvas>
 	<canvas id="canvas2" width="70" height="300"></canvas>
 	<canvas id="canvas3" width="70" height="300"></canvas>
@@ -25,59 +52,44 @@
 	  </div>
 	  <div id="status"></div>
 	</div> --}}
-      </div>
 
+      </div>
 
        @if(session()->has('PLAY_ID')==1)
       <div id="buttons">
-      	<div id="play" class="button button-default Spin1" >Spin</div>
+      	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default Spin1" >Spin</div>
   		</div>
+  		  <input type="hidden" id="s_id"  value="{{session()->get('PLAY_ID')}}" name="">
 
       @else
        <div id="buttons">
-	<div id="play" class="button button-default" data-toggle="modal" data-target="#myModal" >Spin The Wheel</div>
+	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default" data-toggle="modal" data-target="#myModal" >Spin The Wheel</div>
+	  		  <input type="hidden" id="s_id"  value="1" name="">
+
       </div>
 
 
           @endif
              @if(session()->get('PLAY_ID')==2)
       <div id="buttons">
-      	<div id="play" class="button button-default Spin4" >Spin</div>
+      	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default Spin4" >Spin</div>
   			      </div>
-  			      
+  			      <input type="hidden" id="s_id"  value="{{session()->get('PLAY_ID')}}" name="">
   			       @endif
   			       @if(session()->get('PLAY_ID')==3)
   			        <div id="buttons">
-      	<div id="play" class="button button-default freeSpin" >FreeSpin</div>
+      	<div id="play" class="animate__animated animate__swing animate__delay-2s button button-default freeSpin" >FreeSpin</div>
   			      </div>
+  			    <input type="hidden" id="s_id" value="{{session()->get('PLAY_ID')}}" name="">
+
   			      @endif
        <div id="url">
       </div>
-
+     
       <div class="text-white" id="text" style="display: none;    margin-top: 110px;
 "></div>
-  
-
-     {{--  <div class="fb-share-button" 
-data-href="https://www.google.com/" id="fb_share" style="margin-top: 80px;" 
-data-layout="button_count">
-</div>
-     <div id="fb-root"></div>
-<script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id))
-
- return;
-
-js = d.createElement(s); js.id = id;
-
-js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- Your share button code -->
-
-   </div> --}}
+   <div id="line" style="display: none;">
+      </div>
 
    <script type="text/javascript">
    	$('document').ready(function(){
@@ -97,20 +109,43 @@ fjs.parentNode.insertBefore(js, fjs);
 
 			<!-- Modal Header -->
 			<div class="modal-header">
-				<h4 class="modal-title">Fill filed</h4>
+				<h4 class="modal-title text-center">Please Fill the Follwing</h4>
 				<button type="button" class="close " data-dismiss="modal">&times;</button>
 			</div>
 			<!-- Modal body -->
 			<div class="modal-body">
+				<center>
+									    <img src="{{asset('img/logo.png')}}" width="auto" height="150">
+
+				</center>
+
 				<form method="post" id="frmgetData">
 					@csrf
 					<div class="mt-4 form-group">
+						<div class="form-group">
+						<input type="checkbox" value="yes" name="terms"  id="terms">
+						<label><b> User accepts <a href="www.google.com"> terms and conditions</a></b></label>
 						
+
+					</div>
+					<span id="termserror" class="text-danger"></span>
+						
+				<span id="termserror" class="text-danger"></span>
+					<div class="form-group text-center">
+					<h5>Please confirm that you are over the age 18<h5>
+						<input type="radio" value="yes" class="checkbox-primary ml-2" name="age" id="age">   Yes 
+						<input type="radio" value="no" class="checkbox-danger ml-2" name="age" id="age">  No
+
+					</div>
+					<span id="ageerror" class="text-danger"></span>
+						 
 						<div class="input-group mb-3">
 						<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon1">Phone</span>
+						<span class="input-group-text" id="basic-addon1"><i class="fa fa-phone" aria-hidden="true"></i>
+
+</span>
 						</div>
-						<input type="text" class="form-control "  name="number"  id="number">
+						<input type="text" class="form-control "  name="number" placeholder="Phone"  id="number">
 						
 
 						</div>
@@ -119,23 +154,9 @@ fjs.parentNode.insertBefore(js, fjs);
                     @endif --}}
 						<span id="numerror" class="text-danger"></span>
 
-					<div class="form-group">
-						<input type="checkbox" value="yes" name="terms"  id="terms">
-						<label>User accepts terms and conditions</label>
-						
-
-					</div>
-					<span id="termserror" class="text-danger"></span>
-						
-				<span id="termserror" class="text-danger"></span>
-					<div class="form-group">
-						<input type="checkbox" value="yes" class="checkbox-primary" name="age"  id="age"  >
-						<label>please confirm that you are over the age 18</label>
-					</div>
-					<span id="ageerror" class="text-danger"></span>
-						 
+					
 					<div  style="text-align: center;">
-						<div id="getData"  class="btn btn-primary "><i class="fa fa-facebook"></i> Facebook Login</div>
+						<div id="getData"  class="btn btn-primary "><i class="fa fa-facebook"></i> Sign in with Facebook</div>
 					</div>
 					    <div class="flex items-center justify-end mt-4" style="display: none;">
                 <a  class="btn btn-primary " id="fblogin" href="{{ url('auth/facebook') }}" style="margin-top: 0px !important;background: blue;color: #ffffff;padding: 5px;border-radius:7px;" id="btn-fblogin">

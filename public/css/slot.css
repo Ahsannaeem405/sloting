@@ -74,7 +74,7 @@ html , body
 {
     font-family: 'Slackey'; 
     position:absolute;
-    bottom:-56px;
+    bottom:-107px;
     left:30px;
     right:30px;
     text-align: center;
@@ -89,11 +89,11 @@ html , body
 {
     display:block;
     position:relative;
-    height: 290px;
+    height: 350px;
     overflow: hidden;
     text-align: center;
     background:#000;
-    border: 10px solid #f6c402 ;
+        border: 10px solid #f6c402 ;
   
     border-radius:3px;
     -moz-box-shadow:#fff 0px 1px 0px;
@@ -164,7 +164,7 @@ html , body
 }
 .button.button-default
 {
-    background-image:-moz-linear-gradient(#77e0fb,#3f93ac);
+    background-image:-moz-linear-gradient(#ffd539,#af861e);
     background-image:-webkit-gradient(linear, left top, left bottom, from(#77e0fb), to(#3f93ac));
 }
 .button.button-default:hover
@@ -184,7 +184,7 @@ html , body
         display: none;
     font-family: cursive;
     position: absolute;
-    top: 101%;
+    top: 124%;
     left: 17%;
     text-align: center;
     height: 41px;

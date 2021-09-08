@@ -1,12 +1,14 @@
 
-var IMAGE_HEIGHT = 88;
+var IMAGE_HEIGHT = 80;
 var IMAGE_TOP_MARGIN = 5;
 var IMAGE_BOTTOM_MARGIN = 5;
 var SLOT_SEPARATOR_HEIGHT = 2
 var SLOT_HEIGHT = IMAGE_HEIGHT + IMAGE_TOP_MARGIN + IMAGE_BOTTOM_MARGIN + SLOT_SEPARATOR_HEIGHT; // how many pixels one slot image takes
+
 var RUNTIME = 3000; // how long all slots spin before starting countdown
 var SPINTIME = 1000; // how long each slot spins at minimum
-var ITEM_COUNT = 6 // item count in slots
+var co=$('#count_lenght').val();
+var ITEM_COUNT =parseInt(co); // item count in slots
 var SLOT_SPEED = 15; // how many pixels per second slots roll
 var DRAW_OFFSET = 45 // how much draw offset in slot display from top
 
@@ -32,7 +34,7 @@ function preloadImages( images, callback ) {
 
     function _preload( asset ) {
 	asset.img = new Image();
-	asset.img.src = 'admin_asset/images/asset/' + asset.id+'.jpg';
+	asset.img.src = 'admin_asset/images/asset/' + asset.id+'.png';
 
 	asset.img.addEventListener("load", function() {
 	    _check();
@@ -103,8 +105,8 @@ for(i=0;i<count;i++)
 		var asset = items[i];
 		ctx.save();
 		ctx.shadowColor = "rgba(0,0,0,0.5)";
-		ctx.shadowOffsetX = 5;
-		ctx.shadowOffsetY = 5;
+		ctx.shadowOffsetX = 15;
+		ctx.shadowOffsetY = 15;
 		ctx.shadowBlur = 5;
 		ctx.drawImage(asset.img, 3, i * SLOT_HEIGHT + IMAGE_TOP_MARGIN);
 		ctx.drawImage(asset.img, 3, 
@@ -241,9 +243,14 @@ function Game() {
     this.c3 = $('#canvas3');
 
     // set random canvas offsets
-    this.offset1 = -parseInt(Math.random() * ITEM_COUNT ) * SLOT_HEIGHT;
-    this.offset2 = -parseInt(Math.random() * ITEM_COUNT ) * SLOT_HEIGHT;
-    this.offset3 = -parseInt(Math.random() * ITEM_COUNT ) * SLOT_HEIGHT;
+    // this.offset1 = -parseInt(Math.random() * ITEM_COUNT ) * SLOT_HEIGHT;
+    // this.offset2 = -parseInt(Math.random() * ITEM_COUNT ) * SLOT_HEIGHT;
+    // this.offset3 = -parseInt(Math.random() * ITEM_COUNT ) * SLOT_HEIGHT;
+    
+    this.offset1 = -parseInt(0.5 * ITEM_COUNT ) * SLOT_HEIGHT;
+    this.offset2 = -parseInt(0.5 * ITEM_COUNT ) * SLOT_HEIGHT;
+    this.offset3 = -parseInt(0.5 * ITEM_COUNT ) * SLOT_HEIGHT;
+
     this.speed1 = this.speed2 = this.speed3 = 0;
     this.lastUpdate = new Date();
 
@@ -278,24 +285,51 @@ Game.prototype.restart = function() {
     }
 
     // uncomment to get always jackpot
-    //this.result1 = _find( this.items1, 'gold-64' );
-    //this.result2 = _find( this.items2, 'gold-64' );
-    //this.result3 = _find( this.items3, 'gold-64' );
+    //console.log("Item1: "+this.items1+" Item2: "+this.items2+" Item3: "+this.items3);
+
+var items2 = [];
+var count=$('#count_lenght').val();
+for(i=0;i<count;i++)
+{
+
+	name=$('#imgid_'+i).val();
+	var data={id: name};
+	items2.push(data);
+}
+var s_id=$('#s_id').val();
+if(s_id ==1)
+{
+			this.result1 = _find( this.items1, items2[3].id );
+          this.result2 = _find( this.items2, items2[3].id );
+          this.result3 = _find( this.items3, items2[3].id );
+}else{
+			this.result1 = _find( this.items1, items2[3].id );
+          this.result2 = _find( this.items2, items2[4].id );
+          this.result3 = _find( this.items3, items2[6].id );
+}
+          
 
     // get random results
-    this.result1 = parseInt(Math.random() * this.items1.length)
-    this.result2 = parseInt(Math.random() * this.items2.length)
-    this.result3 = parseInt(Math.random() * this.items3.length)
+    // this.result1 = parseInt(Math.random() * this.items1.length)
+    // this.result2 = parseInt(Math.random() * this.items2.length)
+    // this.result3 = parseInt(Math.random() * this.items3.length)
 
+
+       
     // Clear stop locations
     this.stopped1 = false;
     this.stopped2 = false;
     this.stopped3 = false;
 
     // randomize reel locations
-    this.offset1 = -parseInt(Math.random( ITEM_COUNT )) * SLOT_HEIGHT;
-    this.offset2 = -parseInt(Math.random( ITEM_COUNT )) * SLOT_HEIGHT;
-    this.offset3 = -parseInt(Math.random( ITEM_COUNT )) * SLOT_HEIGHT;
+    
+    this.offset1 = -parseInt(0.5) * SLOT_HEIGHT; 
+    this.offset2 = -parseInt(0.5) * SLOT_HEIGHT;
+    this.offset3 = -parseInt(0.5) * SLOT_HEIGHT;
+
+    // this.offset1 = -parseInt(Math.random( ITEM_COUNT )) * SLOT_HEIGHT;
+    // this.offset2 = -parseInt(Math.random( ITEM_COUNT )) * SLOT_HEIGHT;
+    // this.offset3 = -parseInt(Math.random( ITEM_COUNT )) * SLOT_HEIGHT;
 
     $('#results').hide();
 
@@ -336,10 +370,10 @@ Game.prototype.update = function() {
 	    var c = parseInt(Math.abs( offset / SLOT_HEIGHT)) % ITEM_COUNT;
 	    if ( c == result ) {
 		if ( result == 0 ) {
-		    if ( Math.abs(offset + (ITEM_COUNT * SLOT_HEIGHT)) < (SLOT_SPEED * 1.5)) {
+		    if ( Math.abs(offset + (ITEM_COUNT * SLOT_HEIGHT)) < (SLOT_SPEED * 1.8)) {
 			return true; // done
 		    }
-		} else if ( Math.abs(offset + (result * SLOT_HEIGHT)) < (SLOT_SPEED * 1.5)) {
+		} else if ( Math.abs(offset + (result * SLOT_HEIGHT)) < (SLOT_SPEED * 1.8)) {
 		    return true; // done
 		}
 	    }
@@ -386,18 +420,19 @@ Game.prototype.update = function() {
 	var ec = 0;
 
 	$('#results').show();
-	if (that.items1[that.result1].id == 'freegift-64') {
+	if (that.items1[that.result1].id == 'gold-64') {
 	    ec++;
 	}
-	if (that.items2[that.result2].id == 'freegift-64') {
+	if (that.items2[that.result2].id == 'gold-64') {
 	    ec++;
 	}
-	if (that.items3[that.result3].id == 'freegift-64') {
+	if (that.items3[that.result3].id == 'gold-64') {
 	    ec++;
 	}
 	$('#multiplier').text(ec);
 
 	$('#status').text(BLURB_TBL[ec]);
+	$("#line").css("display", "block");
 	$("#url").css("display", "block");
 	$("#text").css("display", "block");
 	$("#play").css("display", "none");
