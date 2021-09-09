@@ -51,7 +51,7 @@ class FacebookController extends Controller
                 Auth::login($finduser);
                                
 
-                return redirect()->intended('dashboard');
+                return redirect()->intended('/');
          
             }else{
                 $newUser = User::create([
@@ -63,7 +63,7 @@ class FacebookController extends Controller
                 
                 Auth::login($newUser);
         
-                return redirect()->intended('dashboard');
+                return redirect()->intended('/');
             }
         
         } catch (Exception $e) {
