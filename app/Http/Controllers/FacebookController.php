@@ -38,28 +38,34 @@ class FacebookController extends Controller
      */
      public function handleFacebookCallback()
     {
-              dd(12);
 
-        $user = Socialite::driver('facebook')->user();
+      try {
+        
+            $user = Socialite::driver('facebook')->user();
+         
+            $finduser = User::where('facebook_id', $user->id)->first();
+        
+            if($finduser){
+         
+                Auth::login($finduser);
+                                  dd('yes');
 
-        $this->_registerOrLoginUser($user);
-
-        // Return home after login
-        return redirect()->route('home');
-    }
-
-    protected function _registerOrLoginUser($data)
-    {
-        $user = User::where('email', '=', $data->email)->first();
-        if (!$user) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->email = $data->email;
-            $user->provider_id = $data->id;
-            $user->avatar = $data->avatar;
-            $user->save();
+                return redirect()->intended('dashboard');
+         
+            }else{
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'password' => encrypt('123456dummy')
+                ]);
+                  dd($newUser);
+                Auth::login($newUser);
+        
+                return redirect()->intended('dashboard');
+            }
+        
+        } catch (Exception $e) {
+            dd($e->getMessage());
         }
-
-        Auth::login($user);
     }
 }
