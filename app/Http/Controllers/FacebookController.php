@@ -39,7 +39,7 @@ class FacebookController extends Controller
      public function handleFacebookCallback()
     {
 
-    
+
 
       try {
         
@@ -67,7 +67,7 @@ class FacebookController extends Controller
             }
         
         } catch (Exception $e) {
-  dd('ooo');
+
             dd($e->getMessage());
         }
     }
