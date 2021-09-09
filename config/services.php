@@ -33,7 +33,7 @@ return [
     'facebook' => [
         'client_id' => '172321264925109',
         'client_secret' =>  '652f39056abf1b25805eebf503fae7e9',
-        'redirect' => 'https://localhost:8000/login/facebook/callback',
+        'redirect' => 'http://sloting.herokuapp.com/public/login/facebook/callback',
     ],
 
 
