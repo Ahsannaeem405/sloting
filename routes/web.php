@@ -29,6 +29,10 @@ Route::any('/linkseed', function() {
 Route::any('/migrate', function() {
    Artisan::call('migrate');
 });
+Route::any('/optimize', function() {
+ $run = Artisan::call('optimize');
+        return 'FINISHED';  
+    });
 Route::any('/cache', function() {
         $run = Artisan::call('config:clear');
         $run = Artisan::call('cache:clear');
