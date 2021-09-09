@@ -17,23 +17,23 @@ use App\Http\Controllers\AdminController;
 */
 
 
-Route::get('/reset', function() {
+Route::any('/reset', function() {
     session()->forget('PLAY_ID');
 });
-Route::get('/seed', function() {
+Route::any('/seed', function() {
     Artisan::call('db:seed');
 });
-Route::get('/linkseed', function() {
+Route::any('/linkseed', function() {
     Artisan::call('db:seed link');
 });
-Route::get('/migrate', function() {
+Route::any('/migrate', function() {
    Artisan::call('migrate');
 });
-Route::get('/optimize', function() {
+Route::any('/optimize', function() {
  $run = Artisan::call('optimize');
         return 'FINISHED';  
     });
-Route::get('/cache', function() {
+Route::any('/cache', function() {
         $run = Artisan::call('config:clear');
         $run = Artisan::call('cache:clear');
         $run = Artisan::call('config:cache');
@@ -41,54 +41,54 @@ Route::get('/cache', function() {
         Session::flush();
         return 'FINISHED';  
     });
-Route::get('/migrate', function() {
+Route::any('/migrate', function() {
          Artisan::call('migrate');
         });
-// Route::get('/', function () {
+// Route::any('/', function () {
 //     return view('welcome');
 // });
-// Route::get('/', function () {
+// Route::any('/', function () {
 //     return view('index');
 // });
 
-Route::get('login/facebook', [App\Http\Controllers\FacebookController::class, 'redirectToFacebook'])->name('login.facebook');
-Route::get('login/facebook/callback', [App\Http\Controllers\FacebookController::class, 'handleFacebookCallback']);
+Route::any('login/facebook', [App\Http\Controllers\FacebookController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::any('login/facebook/callback', [App\Http\Controllers\FacebookController::class, 'handleFacebookCallback']);
 
-// Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
- //Route::get('facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
- Route::get('/',[UserController::class,'index']);
+// Route::any('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
+ //Route::any('facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
+ Route::any('/',[UserController::class,'index']);
  Route::post('/getData',[UserController::class,'getData']);
- Route::get('/url_link',[UserController::class,'url_link']);
- Route::get('/url_link3',[UserController::class,'url_link3']);
- Route::get('/url_link4',[UserController::class,'url_link4']);
- Route::get('/fb_link',[UserController::class,'fb_link']);
- Route::get('/reset',[UserController::class,'reset']);
+ Route::any('/url_link',[UserController::class,'url_link']);
+ Route::any('/url_link3',[UserController::class,'url_link3']);
+ Route::any('/url_link4',[UserController::class,'url_link4']);
+ Route::any('/fb_link',[UserController::class,'fb_link']);
+ Route::any('/reset',[UserController::class,'reset']);
 
 
  //Admin
 
- // Route::get('admin/login',[AdminController::class,'login']);
-  Route::get('admin/',[AdminController::class,'index']);
-  Route::get('admin/users',[AdminController::class,'users']);
-  Route::get('admin/assets',[AdminController::class,'assets']);
-  Route::get('admin/links',[AdminController::class,'links']);
+ // Route::any('admin/login',[AdminController::class,'login']);
+  Route::any('admin/',[AdminController::class,'index']);
+  Route::any('admin/users',[AdminController::class,'users']);
+  Route::any('admin/assets',[AdminController::class,'assets']);
+  Route::any('admin/links',[AdminController::class,'links']);
   Route::post('admin/addAssets',[AdminController::class,'addAssets']);
-  Route::get('/usersDelete/{id}',[AdminController::class,'usersDelete']);
+  Route::any('/usersDelete/{id}',[AdminController::class,'usersDelete']);
   Route::post('assetEdit/{id}',[AdminController::class,'assetEdit']);
   Route::post('admin/assetUpdate/{id}',[AdminController::class,'assetUpdate']);
   Route::post('admin/linkUpdate/{id}',[AdminController::class,'linkUpdate']);
-  Route::get('/assetDelete/{id}',[AdminController::class,'assetDelete']);
-  Route::get('/test',[AdminController::class,'test']);
-  Route::get('/Profile',[AdminController::class,'Profile']);
+  Route::any('/assetDelete/{id}',[AdminController::class,'assetDelete']);
+  Route::any('/test',[AdminController::class,'test']);
+  Route::any('/Profile',[AdminController::class,'Profile']);
   Route::post('/updateProfile',[AdminController::class,'updateProfile']);
-    Route::get('admin/logo',[AdminController::class,'logo']);
+    Route::any('admin/logo',[AdminController::class,'logo']);
   Route::post('admin/addLogo',[AdminController::class,'addLogo']);
   Route::post('admin/logoUpdate/{id}',[AdminController::class,'logoUpdate']);
 
-// Route::get('facebook/callback', [UserController::class, 'handleFacebookCallback']);
+// Route::any('facebook/callback', [UserController::class, 'handleFacebookCallback']);
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+Route::middleware(['auth:sanctum', 'verified'])->any('/admin', function () {
     return view('admin.index');
 })->name('dashboard');
 
