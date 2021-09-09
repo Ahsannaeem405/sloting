@@ -39,11 +39,10 @@ class FacebookController extends Controller
      public function handleFacebookCallback()
     {
 
-
-
       try {
         
             $user = Socialite::driver('facebook')->user();
+            dd(  $user);
          
             $finduser = User::where('facebook_id', $user->id)->first();
         
