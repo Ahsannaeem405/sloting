@@ -1,52 +1,77 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<!DOCTYPE html>
 
-  <meta name="interface" content="desktop" />
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Slot Machine</title>
+        
+        <meta name="Title" content="Slot Machine" />
+        <meta name="description" content="Slot Machine is a HTML5 game where you pull the machine with three or more reels which spin and win credit, build your own slot game through this interesting game themes and attractive animation.">
+    <meta name="keywords" content="slot, machine, reel, fruits, point, gamble, jackpot, lose, lucky, bingo, spin, credit, wins">
+        
+        <!-- for Facebook -->
+        <meta property="og:title" content="Slot Machine"/>
+        <meta property="og:site_name" content="Slot Machine"/>
+        <meta property="og:image" content="http://demonisblack.com/code/2019/slotmachine/game/share.jpg" />
+        <meta property="og:url" content="http://demonisblack.com/code/2019/slotmachine/game/" />
+        <meta property="og:description" content="Slot Machine is a HTML5 game where you pull the machine with three or more reels which spin and win credit, build your own slot game through this interesting game themes and attractive animation.">
+        
+        <!-- for Twitter -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Slot Machine" />
+        <meta name="twitter:description" content="Slot Machine is a HTML5 game where you pull the machine with three or more reels which spin and win credit, build your own slot game through this interesting game themes and attractive animation." />
+        <meta name="twitter:image" content="http://demonisblack.com/code/2019/slotmachine/game/share.jpg" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script>
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            msViewportStyle.appendChild(
+                document.createTextNode(
+                    "@-ms-viewport{width:device-width}"
+                )
+            );
+            document.getElementsByTagName("head")[0].
+                appendChild(msViewportStyle);
+        }
+        </script>
 
-  <title>Slots</title>
-
-  <link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'/>
-  <link type="text/css" rel="stylesheet" href="{{asset('css/reset.css')}}" />
-  <link type="text/css" rel="stylesheet" href="{{asset('css/slot.css')}}" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   <meta property="og:url"           content="https://ecommreceonline.000webhostapp.com/fbshare" />
-<meta property="og:type"          content="website" />
-<meta property="og:title"         content="Your Website Title" />
-<meta property="og:description"   content="Your description" />
-<meta property="og:image"         content="https://pbs.twimg.com/profile_images/867383513263353856/RG2nkBX8_400x400.jpg" />
-</head>
-<body style="background-image: url({{asset('img/main_bg.jpg')}});
-">
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=172321264925109&autoLogAppEvents=1" nonce="AwEXu4Dw"></script>
-<div class="container-fluid">
+        <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
+        <script src="{{asset('js/vendor/modernizr-2.6.2.min.js')}}"></script>
+         </head>
+    <body>
+     
+{{-- <div class="container-fluid">
   <div class="col-md-3">
     <img src="{{asset('img/logo.png')}}" width="auto" height="150">
   </div>
-</div>
+</div> --}}
 @section('content')
 @show
 
 
-			{{-- 	<footer id="footer">
-					<div class="inner_footer">
-						<p>Copyright &copy; 2021. All rights reserved</p>
-					</div>
-				</footer> --}}
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
-  <script type="text/javascript" src="{{asset('js/slot.js')}}"></script>
-  <script type="text/javascript">
-  $(function() { 
-  	SlotGame(); 
-  });
-</script>
-</body>
+
+
+
+     
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+        
+        <script src="{{asset('js/vendor/detectmobilebrowser.js')}}"></script>
+        <script src="{{asset('js/vendor/createjs.min.js')}}"></script>
+    <script src="{{asset('js/vendor/TweenMax.min.js')}}"></script>
+        
+        <script src="{{asset('js/plugins.js')}}"></script>
+        <script src="{{asset('js/sound.js')}}"></script>
+        <script src="{{asset('js/canvas.js')}}"></script>
+        <script src="{{asset('js/settings.js')}}"></script>
+    <script src="{{asset('js/game.js')}}"></script>
+        <script src="{{asset('js/mobile.js')}}"></script>
+        <script src="{{asset('js/main.js')}}"></script>
+        <script src="{{asset('js/loader.js')}}"></script>
+        <script src="{{asset('js/init.js')}}"></script>
+    </body>
 </html>
