@@ -29,10 +29,10 @@ function initPreload(){
 			{src:'assets/multiple/item_info.png', id:'itemInfo'},
 		
 			//classic three line slots
-			// {src:'assets/classic/item_machine.png', id:'itemMachine'},
-			// {src:'assets/classic/frame_Spritesheet5x1.png', id:'itemSlotFrame'},
-			// {src:'assets/classic/item_shadow.png', id:'itemShadow'},
-			// {src:'assets/classic/item_info.png', id:'itemInfo'},
+			//{src:'assets/classic/item_machine.png', id:'itemMachine'},
+			//{src:'assets/classic/frame_Spritesheet5x1.png', id:'itemSlotFrame'},
+			//{src:'assets/classic/item_shadow.png', id:'itemShadow'},
+			//{src:'assets/classic/item_info.png', id:'itemInfo'},
 		
 			{src:'assets/button_close.png', id:'buttonClose'},
 			{src:'assets/button_info.png', id:'buttonInfo'},

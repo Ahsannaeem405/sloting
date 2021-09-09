@@ -25,6 +25,11 @@
             <!-- ROTATE INSTRUCTION END-->
             
             <!-- CANVAS START-->
+            @php $i=0; @endphp
+      @foreach($real as $list)
+         <input type="hidden" id="imgid_{{$i++}}" value="{{$list->image}}" name="">
+      @endforeach
+      <input type="hidden" id="count_lenght" name="" value="{{$real2}}">
             <div id="canvasHolder">
                 <canvas id="gameCanvas" width="768" height="1024"></canvas>
             </div>

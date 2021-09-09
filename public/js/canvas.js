@@ -426,7 +426,7 @@ function buildGameCanvas(){
 	}
 	
 	mainContainer.addChild(logo, buttonStart);
-	gameContainer.addChild(itemSlotFrameAnimate, itemMachine, itemHandleAnimate, slotContainer, linesContainer, slotWinContainer, itemShadow, slotWinFrameContainer, itemDisplayLines, itemDisplayBet, itemDisplayMaxBet, itemDisplaySpin, buttonInfo, buttonLines, buttonBet, buttonMaxBet, buttonSpin, linesTxt, betTxt, maxBetTxt, spinTxt, itemCredit, itemCreditAlert, itemCreditAnimate, creditTxt, infoContainer);
+	gameContainer.addChild(itemSlotFrameAnimate, itemMachine, itemHandleAnimate, slotContainer, linesContainer, slotWinContainer, itemDisplayLines, itemDisplayBet, itemDisplayMaxBet, itemDisplaySpin, buttonInfo, buttonLines, buttonBet, buttonMaxBet, buttonSpin, linesTxt, betTxt, maxBetTxt, spinTxt, itemCredit, itemCreditAlert, itemCreditAnimate, creditTxt, infoContainer);
 	resultContainer.addChild(itemResult, resultTitleTxt, resultScoreTxt, buttonContinue);
 	optionsContainer.addChild(buttonFullscreen, buttonSoundOn, buttonSoundOff, buttonExit);
 	optionsContainer.visible = false;

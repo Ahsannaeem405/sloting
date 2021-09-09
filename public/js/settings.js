@@ -38,19 +38,28 @@ var slotSettings = {
 					};
 
 
-//slots array			
-var slots_arr = [
-					{static:'assets/multiple/slot_01.png', animate:'assets/multiple/slot_01_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_02.png', animate:'assets/multiple/slot_02_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_03.png', animate:'assets/multiple/slot_03_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_04.png', animate:'assets/multiple/slot_04_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_05.png', animate:'assets/multiple/slot_05_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_06.png', animate:'assets/multiple/slot_06_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_07.png', animate:'assets/multiple/slot_07_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_08.png', animate:'assets/multiple/slot_08_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_09.png', animate:'assets/multiple/slot_09_Spritesheet4x3.png'},
-					{static:'assets/multiple/slot_10.png', animate:'assets/multiple/slot_10_Spritesheet4x3.png'}
-				];
+//slots array	
+
+
+
+var slots_arr = [];
+
+var count_lenght = $('#count_lenght').val();
+
+console.log(newitem);
+for(i=0;i<count_lenght;i++)
+{
+
+	var newitem = $('#imgid_'+i).val();
+	newitem="admin_asset/images/asset/"+newitem;
+slots_arr.push(
+	{static:newitem, 
+	animate:'assets/multiple/slot_01_Spritesheet4x3.png'}
+);
+	
+}
+console.log("New Array: "+slots_arr);
+
 
 
 //pay table array
