@@ -17,16 +17,7 @@ class FacebookController extends Controller
      */
     public function redirectToFacebook(Request $request)
     {
-      //   $user=new User();
-      //   $user->number=$request->number;
-      //   $user->terms=$request->terms;
-      //   $user->age=$request->age;
-      //   $user->name=rand(111,222);
-      //   $user->email=rand(111,222).'@gmail.com';
-      //   $user->password='naeem';
-      //   $user->save();
-      // $play_id['play_id']= session()->put('PLAY_ID',1);
-      // return view('/index',$play_id);
+     
         return Socialite::driver('facebook')->redirect();
 
     }
