@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
      <!-- PERCENT LOADER START-->
-    	<div id="mainLoader"><img src="{{asset('slot/assets/loader.png')}}" /><br><span>0</span></div>
+    	<div id="mainLoader"><img src="{{asset('assets/loader.png')}}" /><br><span>0</span></div>
         <!-- PERCENT LOADER END-->
         
         <!-- CONTENT START-->
@@ -17,7 +17,7 @@
             <div id="rotateHolder">
                 <div class="mobileRotate">
                 	<div class="rotateDesc">
-                    	<div class="rotateImg"><img src="{{asset('slot/assets/rotate.png')}}" /></div>
+                    	<div class="rotateImg"><img src="{{asset('assets/rotate.png')}}" /></div>
                         Rotate your device <br/>to landscape
                     </div>
                 </div>

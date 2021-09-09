@@ -398,7 +398,7 @@ function toggleBetLines(con){
 	if(slotData.spin){
 		return;	
 	}
-	resetHighlightWinSlots();
+	//resetHighlightWinSlots();
 	
 	if(con){
 		slotData.lines++;
@@ -428,7 +428,7 @@ function toggleBetLines(con){
 		}
 		
 		if(slotData.linesArray.length > 0){
-			displayWinSlots();
+		//	displayWinSlots();
 		}
 	}});
 	
