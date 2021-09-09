@@ -45,12 +45,13 @@ h3.blinkings{
       @foreach($real as $list)
          <input type="hidden" id="imgid_{{$i++}}" value="{{substr($list->image,0,strpos($list->image, '.'))}}" name="">
       @endforeach
+         <input type="hidden" id="count_lenght" name="" value="{{$real2}}">
+
       @php $i=0; @endphp
       @foreach($winimg as $winimgs)
          <input type="hidden" id="winimgid_{{$i++}}" value="{{substr($winimgs->image,0,strpos($winimgs->image, '.'))}}" name="">
       @endforeach
          <input type="hidden" id="win_count_lenght" name="" value="{{$real1}}">
-         <input type="hidden" id="count_lenght" name="" value="{{$real2}}">
 
       <div id="reels" style="    padding-top: 102px;
 ">
