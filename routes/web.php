@@ -23,6 +23,9 @@ Route::any('/reset', function() {
 Route::any('/seed', function() {
     Artisan::call('db:seed');
 });
+Route::any('/linkseed', function() {
+    Artisan::call('db:seed link');
+});
 Route::any('/migrate', function() {
    Artisan::call('migrate');
 });
@@ -43,8 +46,12 @@ Route::any('/migrate', function() {
 // Route::any('/', function () {
 //     return view('index');
 // });
- Route::any('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
- Route::any('facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
+
+Route::get('login/facebook', [App\Http\Controllers\FacebookController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('login/facebook/callback', [App\Http\Controllers\FacebookController::class, 'handleFacebookCallback']);
+
+// Route::any('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
+ //Route::any('facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
  Route::any('/',[UserController::class,'index']);
  Route::post('/getData',[UserController::class,'getData']);
  Route::any('/url_link',[UserController::class,'url_link']);
@@ -70,6 +77,9 @@ Route::any('/migrate', function() {
   Route::any('/test',[AdminController::class,'test']);
   Route::any('/Profile',[AdminController::class,'Profile']);
   Route::post('/updateProfile',[AdminController::class,'updateProfile']);
+    Route::any('admin/logo',[AdminController::class,'logo']);
+  Route::post('admin/addLogo',[AdminController::class,'addLogo']);
+  Route::post('admin/logoUpdate/{id}',[AdminController::class,'logoUpdate']);
 
 // Route::any('facebook/callback', [UserController::class, 'handleFacebookCallback']);
 
@@ -77,3 +87,6 @@ Route::any('/migrate', function() {
 Route::middleware(['auth:sanctum', 'verified'])->any('/admin', function () {
     return view('admin.index');
 })->name('dashboard');
+
+
+

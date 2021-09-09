@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinksTable extends Migration
+class AddImageToLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateLinksTable extends Migration
      */
     public function up()
     {
-        //  //php artisan make:migration add_image_to_links_table --table=links
-        Schema::create('links', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('link');
-            $table->timestamps();
+        Schema::table('links', function (Blueprint $table) {
+            //
+            $table->string('image')->nullable();
+
         });
     }
 
@@ -29,6 +27,8 @@ class CreateLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('links');
+        Schema::table('links', function (Blueprint $table) {
+            //
+        });
     }
 }

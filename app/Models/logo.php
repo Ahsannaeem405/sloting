@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Link extends Model
+class logo extends Model
 {
-    //php artisan make:migration add_image_to_link_table --table=link
-
-    protected $fillable = [
+     protected $fillable = [
         'name',
-        'link',
+        'image',
        
     ];
     use HasFactory;

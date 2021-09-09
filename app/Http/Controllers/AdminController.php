@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Asset;
 use App\Models\Link;
+use App\Models\Logo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -112,7 +113,11 @@ class AdminController extends Controller
         // dd($request->input());
                 $model=Link::find($id);
                 $model->name=$request->name;
-                $model->link=$request->link;            
+                $model->link=$request->link;
+                $image=$request->file('image');
+                $imageName = $image->getClientOriginalName();
+                $model->image=$imageName;
+                $path=$image->move(public_path('admin_asset/images/reword'),$imageName);            
                 $model->save();
             $request->session()->flash('message','Link Update Successfully');
 
@@ -121,7 +126,7 @@ class AdminController extends Controller
     }
              public function Profile(Request $request)
              {
-                             return view('admin.updateProfile');
+                return view('admin.updateProfile');
 
              }
              public function updateProfile(Request $request)
@@ -154,7 +159,42 @@ class AdminController extends Controller
             return view('admin.updateProfile');
         }
     }
+             public function logo(Request $request)
+             {
+                $logos['logo']=Logo::get();
+                return view('admin.logo',$logos);
+             }   
 
+             public function addLogo(Request $request)
+    {
+         //dd($request->input());
+                $model=new Logo();
+                $model->name=$request->name;
+                $image=$request->file('image');
+                $imageName = $image->getClientOriginalName();
+                $model->image=$imageName;
+                $path=$image->move(public_path('admin_asset/images'),$imageName);            
+                $model->save();
+            $request->session()->flash('message','Logo Added Successfully');
+
+                return redirect('admin/logo');
+
+    }
+     public function logoUpdate(Request $request,$id)
+    {
+        // dd($request->input());
+                $model=Logo::find($id);
+                $model->name=$request->name;
+                $image=$request->file('image');
+                $imageName = $image->getClientOriginalName();
+                $model->image=$imageName;
+                $path=$image->move(public_path('admin_asset/images'),$imageName);            
+                $model->save();
+            $request->session()->flash('message','Logo Update Successfully');
+
+                return redirect('admin/logo');
+
+    }
              public function test(Request $request)
              {
                 dd('ss');

@@ -66,11 +66,7 @@
                             <li>
                                 <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
                             </li>
-                            <li>
-                                <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
-                                    <i class="ti-fullscreen"></i>
-                                </a>
-                            </li>
+                          
                         </ul>
                         <ul class="nav-right">
                             
@@ -115,7 +111,7 @@
             <div class="pcoded-inner-navbar main-menu">
                 <div class="">
                     <div class="main-menu-header">
-                        <!-- <img class="img-80 img-radius" src="{{asset('admin_asset/images/avatar-4.jpg')}}" alt="User-Profile-Image"> -->
+                       <img class="img-80 img-radius" src="{{asset('admin_asset/images/avatar-4.jpg')}}" alt="User-Profile-Image"> 
                         <div class="user-details">
                             <span id="more-details">{{ Auth::user()->name }}<i class="fa fa-caret-down"></i></span>
                         </div>
@@ -123,7 +119,7 @@
                     <div class="main-menu-content">
                         <ul>
                             <li class="more-details">
-                                <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
+                                <a href="{{url('Profile')}}"><i class="ti-user"></i>View Profile</a>
                                 <!-- <a href="#!"><i class="ti-settings"></i>Settings</a> -->
                                  <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -178,6 +174,13 @@
                     </li>
                 </ul> -->
                     <ul class="pcoded-item pcoded-left-item">
+                        <li class="{{ Request::is('admin/logo')? 'active' : '' }}">
+                        <a href="{{url('admin/logo')}}" class="waves-effect waves-dark">
+                            <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                            <span class="pcoded-mtext">Logo</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('admin/users')? 'active' : '' }}">
                         <a href="{{url('admin/users')}}" class="waves-effect waves-dark">
                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>

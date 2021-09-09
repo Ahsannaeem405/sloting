@@ -23,9 +23,11 @@ h3.blinkings{
 #line{
     position: absolute;
     top: 71%;
-    width: 323px;
+    left: -3%;
+    width: 340px;
     height: 200px;
     border-top: 7px solid red;
+
 }
 #win1{
 	display: none;
@@ -43,6 +45,11 @@ h3.blinkings{
       @foreach($real as $list)
          <input type="hidden" id="imgid_{{$i++}}" value="{{substr($list->image,0,strpos($list->image, '.'))}}" name="">
       @endforeach
+      @php $i=0; @endphp
+      @foreach($winimg as $winimgs)
+         <input type="hidden" id="winimgid_{{$i++}}" value="{{substr($winimgs->image,0,strpos($winimgs->image, '.'))}}" name="">
+      @endforeach
+         <input type="hidden" id="win_count_lenght" name="" value="{{$real1}}">
          <input type="hidden" id="count_lenght" name="" value="{{$real2}}">
 
       <div id="reels" style="    padding-top: 102px;
@@ -130,8 +137,7 @@ h3.blinkings{
 
 				<form method="post" id="frmgetData">
 					@csrf
-					<div class="mt-4 form-group">
-						<div class="form-group">
+						<div class="form-group text-center">
 						<input type="checkbox" value="yes" name="terms"  id="terms">
 						<label><b> User accepts <a href="www.google.com"> terms and conditions</a></b></label>
 						
@@ -167,8 +173,8 @@ h3.blinkings{
 					<div  style="text-align: center;">
 						<div id="getData"  class="btn btn-primary "><i class="fa fa-facebook"></i> Sign in with Facebook</div>
 					</div>
-					    <div class="flex items-center justify-end mt-4" style="display:none ;">
-                <a  class="btn btn-primary " id="fblogin" href="{{ url('auth/facebook') }}" style="margin-top: 0px !important;background: blue;color: #ffffff;padding: 5px;border-radius:7px;" id="btn-fblogin">
+					    <div class="flex items-center justify-end mt-4" style="display:non ;">
+                <a  class="btn btn-primary " id="fblogin" href="{{ route('login.facebook') }}" style="margin-top: 0px !important;background: blue;color: #ffffff;padding: 5px;border-radius:7px;" id="btn-fblogin">
                     <i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook
                 </a>
             </div>

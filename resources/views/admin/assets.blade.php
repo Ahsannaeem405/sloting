@@ -121,7 +121,7 @@
                                             </div>
                                             <center>
                                              <div class="form-group">
-                                                <button type="submit" name="submit" class="col-md-3 btn btn-success btn-block">Submit</button>
+                                                <button type="submit" name="submit" class="col-md-3 btn btn-success btn-block">Update</button>
                                             </div>
                                         </center>
                                     </form>

@@ -181,11 +181,11 @@ html , body
 
 
 #url{
-        display: none;
+    display: none;
     font-family: cursive;
     position: absolute;
     top: 124%;
-    left: 17%;
+    left: 3%;
     text-align: center;
     height: 41px;
     line-height: 40px;
@@ -193,8 +193,7 @@ html , body
     border-radius: 10px;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#23c519), to(#1b8413));
     /* background-size: auto 80px; */
-    width: 210px;
-    
+    width: 295px;
 }
 #url:hover{
     background-image: -webkit-gradient(linear, left top, left bottom, from(#f6c402), to(#f9e602));

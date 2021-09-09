@@ -17,13 +17,14 @@ class UserController extends Controller
        public function index()
     {
         $getasset['real']=Asset::get();
+        $getasset['winimg']=Link::get();
+             $getasset['real1']=Link::count();
              $getasset['real2']=Asset::count();
    
         return view('index',$getasset);
     }
      public function redirectToFacebook()
     {
-         dd('dd');
         return Socialite::driver('facebook')->redirect();
     }
      public function facebook()
@@ -90,24 +91,11 @@ class UserController extends Controller
         public function url_link()
         {
             session()->put('PLAY_ID',2);
-            $legel_caver=Link::find(2);
+            $air_time=Link::find(1);
 
-            return redirect($legel_caver->link);
+            return redirect($air_time->link);
         }   
-        //   public function url_link2()
-        // {
-        //     session()->put('PLAY_ID',2);
-        //     $airtime=Link::find(1);
 
-        //     return redirect($airtime->link);
-        // }  
-
-        // public function url_link4()
-        // {
-        //     session()->put('PLAY_ID',4);
-
-        //     return redirect('https://www.google.com/');
-        // }   
          public function fb_link()
         {
 

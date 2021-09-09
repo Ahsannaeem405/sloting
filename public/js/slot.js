@@ -195,7 +195,9 @@ for(i=0;i<count;i++)
 
       $('.Spin4').click(function(e) {
 	$('h1').text('Rolling!');
-	$('#url').html('<a id="btn" href="/fb_link" id="forget" target="_blank"> share FB </a>');
+	$('#url').html('\
+		<a id="btn" href="/fb_link" id="forget" target="_blank"> share FB </a>\
+		<br><p class="text-white">“ you still stand a change to win these amazing gift cards</P>');
 	    $('#btn').click(function(){
          	setTimeout(
   function() 
@@ -208,8 +210,9 @@ for(i=0;i<count;i++)
     });
          $('.freeSpin').click(function(e) {
 	$('h1').text('Rolling!');
-	$('#url').html('<a href="/reset"> Restart Game </a>');
-	$('#text').html('<p class="text-white"><b>“ you still stand a change to win these amazing gift cards “</b></p>\
+	$('#url').html('<a href="/reset"> Restart Game </a>\
+		<br><p class="text-danger"><b>“Your Game Lose Try Again“</b></p>');
+	$('#text').html('\
 		 	<div  style="margin-top:80px;"\
    		<div class="row">\
    			<div class="col-md-4">\
@@ -297,24 +300,25 @@ var count=$('#count_lenght').val();
 for(i=0;i<count;i++)
 {
 
-	name=$('#imgid_'+i).val();
+	var name=$('#imgid_'+i).val();
 	var data={id: name};
 	items2.push(data);
+	console.log(items2[0].id);
 }
 var s_id=$('#s_id').val();
 var s_id=parseInt(s_id);
 if(s_id ==0)
 {
-		this.result1 = _find( this.items1, items2[5].id );
-          this.result2 = _find( this.items2, items2[5].id );
-          this.result3 = _find( this.items3, items2[5].id );
+		this.result1 = _find( this.items1, items2[0].id );
+          this.result2 = _find( this.items2, items2[0].id );
+          this.result3 = _find( this.items3, items2[0].id );
 }
  
 else if(s_id ==1)
 {
-			this.result1 = _find( this.items1, items2[3].id );
-          this.result2 = _find( this.items2, items2[3].id );
-          this.result3 = _find( this.items3, items2[3].id );
+			this.result1 = _find( this.items1, items2[1].id );
+          this.result2 = _find( this.items2, items2[1].id );
+          this.result3 = _find( this.items3, items2[1].id );
 }else{
 			this.result1 = _find( this.items1, items2[3].id );
           this.result2 = _find( this.items2, items2[4].id );
